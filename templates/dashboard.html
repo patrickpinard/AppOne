@@ -1,0 +1,105 @@
+
+{% extends "layout.html" %}
+{% set active_page = "home" %}
+{% block body %}
+
+       
+    <!-- App Capsule -->
+    <div id="appCapsule" class="full-height">
+        
+        <!--  index -->
+
+        <div class="section mt-2">
+            <div class="section-title">Page principale</div>
+            <div class="row">
+                <div class="col">
+                    <div class="card">
+                        <div class="card-body">
+                                <div class="form-group basic">
+                                   
+                                    <div class="d-flex flex-row justify-content-center align-items-center">
+                                        <div class="item">
+                                            <h1>15&deg;</h1>
+                                        </div>
+                                        <div class="item">
+                                            <ion-icon size="large" name="sunny-outline"></ion-icon>
+                                        </div>
+                                        <div class="p-3">
+                                            <h5>mardi 15 mai 2023</h5>
+                                            <h3>Jardin, Vullierens</h3>
+                                            <span class="weather__description">Nuageux</span>
+                                        </div>
+                                    </div>
+                                    <div class="weather__status d-flex flex-row justify-content-center align-items-center mt-3">
+                                        <div class="p-4 d-flex justify-content-center align-items-center">
+                                            <img src="https://svgur.com/i/oHw.svg">
+                                            <span>10%</span>
+                                        </div>
+                                        <div class="p-4 d-flex justify-content-center align-items-center">
+                                            <img src="https://svgur.com/i/oH_.svg">
+                                            <span>953 hPa</span>
+                                        </div>
+                                        <div class="p-4 d-flex justify-content-center align-items-center">
+                                            <img src="https://svgur.com/i/oKS.svg">
+                                            <span>10 km/h</span>
+                                        </div>
+                                </div>       
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section mt-2">                  
+                <div class="section-title">Jardin réhaussé</div>
+                <div class="row">
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-body">
+                                    <div class="form-group basic">
+                                        <div class="input-wrapper">
+                                            <label class="label" for="INTERVAL_DISPLAY">Démarrage </label>
+                                            <input type="time" class="form-control" id="SCHEDULER_START" name="SCHEDULER_START" >
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-body">
+                                    <div class="form-group basic">
+                                        <div class="input-wrapper">
+                                            <label class="label" for="SCHEDULER_STOP">Arrêt</label>
+                                            <input type="time" class="form-control" id="SCHEDULER_STOP" name="SCHEDULER_STOP" >
+                                        </div>
+                                    </div>       
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-body">
+                                    <div class="form-group basic">
+                                        <div class="input-wrapper">
+                                            <label class="label" for="SCHEDULER_STOP">Arrêt</label>
+                                            <input type="time" class="form-control" id="SCHEDULER_STOP" name="SCHEDULER_STOP" >
+                                        </div>
+                                    </div>       
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>    
+                       
+          
+
+        </form>
+        
+       
+        <!-- * index -->
+    </div>
+    <!-- * App Capsule -->    
+
+    
+{% endblock %}

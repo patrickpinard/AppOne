@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#000000">
+    <title>AppOne</title>
+    <link rel="icon" type="image/png" href="static/img/favicon-32x32.png" sizes="32x32"> 
+    <link rel="apple-touch-icon" sizes="201x251" href="static/img/favicon-32x32.png">
+    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="manifest" href="__manifest.json"> 
+   
+      
+    <!-- ========= JS Files =========  -->
+
+     <!-- jquery -->   
+     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+     <!-- Bootstrap --->
+     <script src="static/js/lib/bootstrap.bundle.min.js"></script>
+     <!-- Ionicons -->
+     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+     <!-- Splide -->
+     <script src="static/js/plugins/splide/splide.min.js"></script>
+     <!-- Base Js File -->
+     <script src="static/js/base.js"></script>
+     <!-- Apex Charts -->
+     <script src="static/js/plugins/apexcharts/apexcharts.min.js"></script>
+     <!-- data Table -->
+     <script type="text/javascript" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
+     <script type="text/javascript" src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap5.js"></script>
+      <!-- Ajax -->
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+     <!-- jsgrid-->
+     <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid.min.css" />
+     <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid-theme.min.css" />
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid.min.js"></script>
+
+</head>
+
+
+<body>
+
+    <!-- App Header -->
+    <div class="appHeader no-border">
+
+        <div class="left">
+            <a href="#" class="headerButton" data-bs-toggle="modal" data-bs-target="#sidebarPanel">
+              <ion-icon name="grid-outline"></ion-icon>
+              <!--- <ion-icon name="menu-outline"></ion-icon>--->
+            </a>
+        </div>
+        
+        <div class="pageTitle">
+          <img src="static/img/favicon-32x32.png" style="color:white" type="image/png" sizes="32x32">   <strong> AppOne </strong>
+        </div>
+
+        <div class="right">           
+          <a class="headerButton" data-bs-toggle="offcanvas" href="#cookiesbox">
+            <ion-icon style="color:rgb(5, 5, 5) "name="information-circle"></ion-icon>
+          </a>
+          
+      </div>
+    </div>
+    
+
+    {% block body %}{% endblock %}
+
+    <!-- App Bottom Menu -->
+    <div class="appBottomMenu">
+        <a href="/dashboard" class="item">
+            <div class="col">
+              <ion-icon name="home-outline"></ion-icon>
+                <strong>Dashboard</strong>
+            </div>
+        </a>
+              
+        <a href="/formulaire" class="item">
+            <div class="col">
+              <ion-icon name="reorder-four-outline"></ion-icon>
+                <strong>Formulaire</strong>
+            </div>
+        </a>
+        
+        <a href="/graph" class="item">
+          <div class="col">
+            <ion-icon name="bar-chart-outline"></ion-icon>
+              <strong>Graphiques</strong>
+          </div>
+        </a>
+
+        <a href="/parameters" class="item">
+            <div class="col">
+              <ion-icon name="construct-outline"></ion-icon>
+                <strong>Paramètres</strong>
+            </div>
+        </a>
+        
+        <a href="/events" class="item">
+          <div class="col">
+            <ion-icon name="list-outline"></ion-icon>
+              <strong>Evénements</strong>
+          </div>
+      </a>
+
+      </a>
+    </div>
+    <!-- * App Bottom Menu -->
+
+    <!-- App Sidebar -->
+    <div class="modal fade panelbox panelbox-left" id="sidebarPanel" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body p-0">
+
+                    <!-- profile box -->
+                    <div class="profileBox pt-2 pb-2">
+                        <div class="image-wrapper">
+                            <img src="static/img/profile.png" alt="image" class="imaged  w36">
+                        </div>
+                        <div class="in">
+                            <strong>  Bienvenue :  {{Username}} </strong>
+                            upsince : {{LastRebootTime}} 
+                        </div>
+                        <a href="#" class="btn btn-link btn-icon sidebar-close" data-bs-dismiss="modal">
+                            <ion-icon name="close-outline"></ion-icon>
+                        </a>
+                    </div>
+                    <!-- * profile box -->
+                   
+
+                    <!-- menu -->
+                    <div class="listview-title mt-1">Menu</div>
+                    
+                    <ul class="listview flush transparent no-line image-listview">
+                                            
+                        <li>
+                          <a href="#confirm_reboot" class="item" data-bs-toggle="modal" data-bs-target="#confirm_reboot">
+                              <div class="icon-box bg-warning">
+                                <ion-icon name="refresh"></ion-icon>
+                              </div>
+                              <div class="in">
+                                  Redémarrer 
+                              </div>
+                          </a>
+                        </li>
+
+                        <li>
+                          <a href="#confirm_shutdown" class="item" data-bs-toggle="modal" data-bs-target="#confirm_shutdown">
+                              <div class="icon-box bg-warning">
+                                <ion-icon name="power"></ion-icon>
+                              </div>
+                              <div class="in">
+                                  Eteindre 
+                              </div>
+                          </a>
+                        </li>
+
+                        <!--- <div class="dropdown-divider"></div>  -->
+                        
+                        
+
+                    </ul>
+                    <!-- * menu -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- * App Sidebar -->
+    
+    <!-- Info Box -->
+    <div id="cookiesbox" class="offcanvas offcanvas-bottom cookies-box" tabindex="-1" data-bs-scroll="true" data-bs-backdrop="false">
+      
+      <div class="offcanvas-header">
+        <h3 class="modal-title">AppOne V1</h3>
+      </div>
+      
+      <div class="offcanvas-body">
+        <p>
+          AppOne est une application PWA de base écrite en python, Javascript et Ajax pour construire des applications rapidement avec un template Flask. 
+          
+          Interface de base avec paramètres de configuration et interface web PWA (Progressive Web App).
+
+          </p>
+          
+          </br>
+            <img src="static/img/favicon-128.png" class="class="rounded float-center img-responsive" alt="Responsive image">
+          </br></br>
+          
+        
+          <div class="modal-footer">
+            </br>
+            Patrick Pinard - 2022
+            </br>
+          </div>
+
+          <div class="buttons">
+              <a href="/home" class="btn btn-warning btn-block accept-cookies" data-bs-dismiss="offcanvas">
+                  Quitter</a>
+          </div>
+      </div>
+    </div>
+    <!-- * A propos de Cookies Box -->
+
+
+
+
+  <!-- Modal (confirm reboot) -->
+
+  <div class="modal fade dialogbox" id="confirm_reboot" data-bs-backdrop="static" tabindex="-1" role="dialog" >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Redémarrer (reboot)</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Êtes-vous sûr ? </p>
+        </div>
+        <div class="modal-footer">
+          <form method="POST" role="form" action="/reboot" class="center-block">
+            <button type="submit" class="btn btn-danger"  name="shutdown" value="refresh">Confirmer</button> 
+          </form> 
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- * Modal (reboot) -->
+
+  <!-- Modal (confirm shutdown) --->
+
+  <div class="modal fade dialogbox" id="confirm_shutdown" data-bs-backdrop="static" tabindex="-1" role="dialog" >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Eteindre (shutdown)</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Êtes-vous sûr ? </p>
+        </div>
+        <div class="modal-footer">
+          <form method="POST" role="form" action="/shutdown" class="center-block">
+            <button type="submit" class="btn btn-danger"  name="shutdown" value="refresh">Confirmer</button> 
+          </form> 
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- * Modal (shutdown) -->
+
+<!-- Exemples de scripts avec ajax -->
+
+  <script>
+
+    // fonction appelée lors d'un refraichissement des paramètres de configuration
+
+    function getConfigParameters() {
+        $.ajax({
+          url: "/getparameters",
+          type: "get",
+          dataType: 'json',
+          contentType: 'application/json',
+          data: {},
+          success: function(response) {
+            var obj = JSON.parse(JSON.stringify(response));
+            document.getElementById('HumidityLevelZone1').value = obj.HumidityLevelZone1;
+            document.getElementById('HumidityLevelZone2').value = obj.HumidityLevelZone2;
+            document.getElementById('TempMinThreshold').value = obj.TempMinThreshold;
+            document.getElementById('TempMaxThreshold').value = obj.TempMaxThreshold;
+            document.getElementById('WateringTimeZone1').value = obj.WateringTimeZone1;
+            document.getElementById('WateringTimeZone2').value = obj.WateringTimeZone2;
+            
+            }
+          });
+      }
+  </script>
+
+
+  <script>
+
+  // fonction appelée lors d'un refraichissement des mesures de capteurs
+
+  function getCapteursValues() {
+      $.ajax({
+         url: "/getallvalues",
+         type: "get",
+         dataType: 'json',
+         contentType: 'application/json',
+         data: {},
+         success: function(response) {
+          var obj = JSON.parse(JSON.stringify(response));
+          document.getElementById('Tin').innerHTML = obj.Tin;
+          document.getElementById('Tout').innerHTML = obj.Tout;
+          document.getElementById('H1').innerHTML = obj.H1;
+          document.getElementById('H2').innerHTML = obj.H2;
+          document.getElementById('H1TEXT').innerHTML = obj.H1TEXT;
+          document.getElementById('H2TEXT').innerHTML = obj.H2TEXT;
+          document.getElementById('TCPU').innerHTML = obj.TCPU;
+          document.getElementById('CPU_usage').innerHTML = obj.CPU_usage;
+          document.getElementById('LastRefreshTime').innerHTML = obj.LastRefreshTime;
+          document.getElementById('LastRebootTime').innerHTML = obj.LastRebootTime
+         }
+      });
+    }
+</script>
+
+
+
+
+
+<script>
+
+      // fonction appelée lors d'un changement d'état du switch pour lumière
+
+    function light(state) {
+      $.ajax({
+        url: "/light",
+        type: "post",
+        data: {state:state},
+        success: function(response) {
+        }
+      });
+     
+    }
+</script>
+
+ 
+
+</body>
+</html>

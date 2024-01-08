@@ -1,0 +1,80 @@
+{% extends "layout.html" %} {% set active_page = "home" %} {% block body %}
+
+<!-- App Capsule -->
+<div id="appCapsule" class="full-height">
+  <!--  index -->
+  <div class="section mt-1 mb-1">
+    <div class="section-title">
+      Evénements
+      <div class="card">
+        <div class="container mt-5">
+          <h2>Formulaire</h2>
+          <form>
+            <div class="form-group">
+              <label for="nom">Nom :</label>
+              <input
+                type="text"
+                class="form-control"
+                id="nom"
+                placeholder="Entrez votre nom"
+              />
+            </div>
+            <div class="form-group">
+              <label for="prenom">Prénom :</label>
+              <input
+                type="text"
+                class="form-control"
+                id="prenom"
+                placeholder="Entrez votre prénom"
+              />
+            </div>
+            <div class="form-group">
+              <label for="email">Adresse Email :</label>
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                placeholder="Entrez votre email"
+              />
+            </div>
+            <div class="form-group">
+              <label for="role">Rôle :</label>
+              <select class="form-control" id="role">
+                <option value="admin">Admin</option>
+                <option value="user">User</option>
+              </select>
+            </div>
+            <button
+              type="button"
+              class="btn btn-primary"
+              onclick="sauvegarder()"
+            >
+              Sauvegarder
+            </button>
+            <button type="button" class="btn btn-danger" onclick="effacer()">
+              Effacer
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function sauvegarder() {
+      // Logique pour sauvegarder les données
+      alert("Données sauvegardées !");
+    }
+
+    function effacer() {
+      // Logique pour effacer les champs du formulaire
+      document.getElementById("nom").value = "";
+      document.getElementById("prenom").value = "";
+      document.getElementById("email").value = "";
+      document.getElementById("role").value = "admin";
+    }
+  </script>
+  <!-- * index -->
+</div>
+<!-- * App Capsule -->
+{% endblock %}
